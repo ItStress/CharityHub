@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="it.sal.disco.unimib.charityhub.ui.main.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_accountFragment"
+            app:destination="@id/accountFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_projectDetailsFragment"
+            app:destination="@id/projectDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/accountFragment"
+        android:name="it.sal.disco.unimib.charityhub.ui.main.AccountFragment"
+        android:label="fragment_account"
+        tools:layout="@layout/fragment_account" >
+        <action
+            android:id="@+id/action_accountFragment_to_welcomeActivity"
+            app:destination="@id/welcomeActivity" />
+    </fragment>
+    <activity
+        android:id="@+id/welcomeActivity"
+        android:name="it.sal.disco.unimib.charityhub.ui.welcome.WelcomeActivity"
+        android:label="activity_welcome"
+        tools:layout="@layout/activity_welcome" />
+    <fragment
+        android:id="@+id/projectDetailsFragment"
+        android:name="it.sal.disco.unimib.charityhub.ui.main.ProjectDetailsFragment"
+        android:label="fragment_project_details"
+        tools:layout="@layout/fragment_project_details" >
+        <argument
+            android:name="project"
+            app:argType="it.sal.disco.unimib.charityhub.model.projects.Project" />
+        <action
+            android:id="@+id/action_projectDetailsFragment_to_donationFragment"
+            app:destination="@id/donationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/donationFragment"
+        android:name="it.sal.disco.unimib.charityhub.ui.main.DonationFragment"
+        android:label="fragment_donation"
+        tools:layout="@layout/fragment_donation" >
+        <argument
+            android:name="project"
+            app:argType="it.sal.disco.unimib.charityhub.model.projects.Project" />
+    </fragment>
+</navigation>
